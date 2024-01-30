@@ -20,6 +20,41 @@ sudo apt install zsh
 sudo usermod --shell /usr/bin/zsh user_name
 ```
 
+## Plugins
+Link Plugins: `https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins`
+
+### zsh-autosuggestions
+Link: `https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#packages`
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+## Agregamos la siguiente linea al .zshrc
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+```
+
+### zsh-syntax-highlighting
+Link: `https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md`
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# Agregamos a .zshrc
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
+### Sudo 
+Link: `https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh`
+
+Para manejar los plugis de manera mas comoda, creamos una carpeta especifica
+```bash
+mkdir /usr/share/zsh-plugins
+```
+Dentro de la carpeta, descargamos el codigo del plugin con `wget`
+```bash
+# Agregamos el source al .zshrc
+
+```
+
 # Instalar Powelevel10k
 
 link: `https://github.com/romkatv/powerlevel10k`
