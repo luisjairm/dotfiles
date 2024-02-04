@@ -128,6 +128,14 @@ npm install -g eas-cli
 ```
 
 
+# Latex
+```bash
+# Latex
+sudo apt install texlive-full
 
+# Previsualizador de pdf
+sudo apt install zathura
 
-
+# Configuramos zathura por defecto 
+xdg-mime default zathura.desktop application/pdf
+```
