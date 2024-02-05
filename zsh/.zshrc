@@ -38,3 +38,30 @@ export NVM_DIR="$HOME/.nvm"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function mkt() {
+    base_path="src"
+    folders=(
+        "Data/repositories"
+        "Data/source/local/asyncStorage"
+        "Data/source/local/sqlite"
+        "Data/source/remote/api"
+        "Data/source/remote/models"
+        "Domain/entities"
+        "Domain/repositories"
+        "Domain/useCases"
+        "Presentation/components"
+        "Presentation/context"
+        "Presentation/hooks"
+        "Presentation/navigations"
+        "Presentation/screens"
+        "Presentation/theme"
+        "Presentation/utils"
+    )
+
+    for folder in "${folders[@]}"; do
+        mkdir -p "$base_path/$folder"
+    done
+
+    echo "Carpetas creadas correctamente."
+}
