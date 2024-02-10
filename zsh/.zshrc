@@ -7,9 +7,9 @@ fi
 
 # Plugins zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-plugins/sudo.plugin.zsh
-source /usr/share/zsh-plugins/copypath.plugin.zsh
+#source /usr/share/zsh-plugins/copypath.plugin.zsh
 
 alias v='code'
 alias ls ="lsd"
@@ -65,3 +65,12 @@ function mkt() {
 
     echo "Carpetas creadas correctamente."
 }
+
+function clean(){
+ rm ~/.zsh_history
+}
+# History
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
