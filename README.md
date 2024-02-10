@@ -104,15 +104,6 @@ Link Expo: `https://docs.expo.dev/get-started/installation/`
 
 * Node LTS
 * git
-* Watchman (Linux, MacOS)
-
-### Watchman
-Para watchman instalamos `homebrew`, verificar que ya hemos agregado el email a git
-Link: `https://brew.sh/` 
-```bash
-# Verificar en la pagina
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
 
 ### Expo Cli
 ```bash
@@ -139,3 +130,16 @@ sudo apt install zathura
 # Configuramos zathura por defecto 
 xdg-mime default zathura.desktop application/pdf
 ```
+
+# Apariencia
+
+## Iconos
+Link: <a href='https://www.xfce-look.org/p/1305251/' target='_blank'>Candy Icons</a>
+
+Descomprimir y mover a `/usr/share/icons`
+
+# Tema
+
+Link: <a href='https://www.xfce-look.org/p/1681315/' target='_blank'>Tokyo Nigth Dark BL</a>
+
+Descomprimir y mover a `/usr/share/themes` 
