@@ -20,6 +20,15 @@ sudo apt install zsh
 sudo usermod --shell /usr/bin/zsh user_name
 ```
 
+## Instalar Powelevel10k
+
+link: `https://github.com/romkatv/powerlevel10k`
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+```
+
+
 ## Plugins
 Link Plugins: `https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins`
 
@@ -53,14 +62,6 @@ Dentro de la carpeta, descargamos el codigo del plugin con `wget`
 ```bash
 # Agregamos el source al .zshrc
 
-```
-
-# Instalar Powelevel10k
-
-link: `https://github.com/romkatv/powerlevel10k`
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
 
 
@@ -130,6 +131,20 @@ sudo apt install zathura
 # Configuramos zathura por defecto 
 xdg-mime default zathura.desktop application/pdf
 ```
+
+# <a href="https://github.com/neovim/neovim/releases">Nvim</a>
+
+```bash
+# Descargamos la ultima version
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+
+# Agregamos los permisos
+chmod u+x nvim.appimage
+
+# Movemos a la carpeta /usr/local/bin
+sudo mv nvim.appimage /usr/local/bin/nvim
+```
+
 
 # Apariencia
 
