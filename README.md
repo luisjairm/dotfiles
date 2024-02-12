@@ -145,6 +145,39 @@ chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
 ```
 
+## Plugins
+* Si no se tiene instalado lua:
+  ```bash
+  sudo apt install lua5.4  
+  ```
+
+* Como primer paso instalamos el manejador de plugins ejecutando el siguiente comando: 
+```bash
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+* Creamos el archivo `init.vim` dentro de `~/.config/nvim`
+* Aquí podremos agregar configuraiciones como las siguientes:
+
+```bash
+set number
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+colorscheme desert
+
+" Plugins
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'preservim/nerdtree'
+" Aqui podremos agregar los repositorios de los pluguins que vayamos a instalar
+
+call plug#end()
+``` 
+
+* Instalar plugin: `:PlugInstall`
+* Actualizar plugin: `:PlugUpdate`
+* Para eliminar un plugin tenemos que comentat o eliminar el repositorio y ejecutar: `:PlugClean` 
+
 
 # Apariencia
 
