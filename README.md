@@ -191,3 +191,87 @@ Descomprimir y mover a `/usr/share/icons`
 Link: <a href='https://www.xfce-look.org/p/1681315/' target='_blank'>Tokyo Nigth Dark BL</a>
 
 Descomprimir y mover a `/usr/share/themes` 
+
+# Staruml 
+Solucionar key
+
+`v5.1.0`
+
+Todos los comandos deben hacerse en modo root
+
+1. Instalamos `asar` via `npm`
+```bash
+npm i asar -g
+```
+
+2. Extraemos el codigo
+```bash
+cd <path_to_staruml>/resources/ # normalmente es /opt/StarUML/resources/
+asar extract app.asar app
+```
+
+3. Edit `src/engine/license-manager.js`
+
+Cambiamos
+```js
+  checkLicenseValidity () {
+    if (packageJSON.config.setappBuild) {
+      setStatus(this, true)
+    } else {
+      this.validate().then(() => {
+        setStatus(this, true)
+      }, () => {
+        setStatus(this, false)
+        UnregisteredDialog.showDialog()
+      })
+    }
+  }
+```
+a
+```js
+  checkLicenseValidity () {
+      setStatus(this, true)
+  }
+```
+
+Y tambien
+```js
+register (licenseKey) {
+    return new Promise((resolve, reject) => {
+      $.post(app.config.validation_url, {licenseKey: licenseKey})
+        .done(data => {
+          if (data.product === packageJSON.config.product_id) {
+            var file = path.join(app.getUserPath(), '/license.key')
+            fs.writeFileSync(file, JSON.stringify(data, 2))
+            licenseInfo = data
+            setStatus(this, true)
+            resolve(data)
+          } else {
+            setStatus(this, false)
+            reject('unmatched') /* License is for old version */
+          }
+        })
+        .fail(err => {
+          setStatus(this, false)
+          if (err.status === 499) { /* License key not exists */
+            reject('invalid')
+          } else {
+            reject()
+          }
+        })
+    })
+  }
+```
+
+a
+
+```js
+ register (licenseKey) {
+    return new Promise(() => { setStatus(this, false) })
+  }
+```
+
+4. Por ultimo
+```bash
+asar pack app app.asar
+```
