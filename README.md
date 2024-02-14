@@ -275,3 +275,19 @@ a
 ```bash
 asar pack app app.asar
 ```
+
+# Inkscape
+```bash
+sudo apt install inkscape
+```
+
+## Convertir svg en png
+
+```bash
+inkscape --export-type=png --export-filename=archivo.png --export-dpi=300 archivo.svg
+```
+
+## Convertir svg to pdf
+```bash
+inkscape -z -D --file=archivo.svg --export-pdf=archivo.pdf
+```
