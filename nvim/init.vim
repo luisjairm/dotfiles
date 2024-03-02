@@ -8,7 +8,8 @@ colorscheme desert
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'preservim/nerdtree'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 
  " Barra de estado
 Plug 'nvim-lualine/lualine.nvim'
