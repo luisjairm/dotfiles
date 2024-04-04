@@ -1,6 +1,5 @@
 # Kitty
 
-
 ```bash
 
 sudo apt install kitty
@@ -22,18 +21,18 @@ sudo usermod --shell /usr/bin/zsh user_name
 
 ## Instalar Powelevel10k
 
-link: `https://github.com/romkatv/powerlevel10k`
+[Documentación](`https://github.com/romkatv/powerlevel10k`)
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 ```
 
 
-## Plugins
-Link Plugins: `https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins`
+## [Plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins)
 
-### zsh-autosuggestions
-Link: `https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#packages`
+
+### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#packages)
+
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
@@ -41,8 +40,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
-### zsh-syntax-highlighting
-Link: `https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md`
+### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
+
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
@@ -51,8 +50,7 @@ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> 
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
-### Sudo 
-Link: `https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh`
+### [Sudo](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh)
 
 Para manejar los plugis de manera mas comoda, creamos una carpeta especifica
 ```bash
@@ -66,9 +64,9 @@ Dentro de la carpeta, descargamos el codigo del plugin con `wget`
 
 
 # Node
-Instalar `nvm` para manejar las versiones de `Node`:
+Instalar [`nvm`](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+) para manejar las versiones de `Node`:
 
-Link: `https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating`
 
 ```bash
 # Verificar en el repositorio
@@ -290,4 +288,71 @@ inkscape --export-type=png --export-filename=archivo.png --export-dpi=300 archiv
 ## Convertir svg to pdf
 ```bash
 inkscape -z -D --file=archivo.svg --export-pdf=archivo.pdf
+```
+
+# MySQL
+
+## Instalación
+Instalamos primero el servidor 
+```bash
+sudo apt install mysql-server
+```
+Verificamos la instalación con `mysql --version`
+
+## Configuramos el componente "VALIDAR CONTRASEÑA"
+
+
+1. Instalamos mysql-server
+```bash
+sudo apt install mysql-server
+```
+
+2. Verificamos la instalción
+```bash
+mysql --version
+```
+
+3.Pasamos a la configuración 
+```bash
+sudo mysql_secure_installation
+```
+Lo ideal es marcar todo con "y"
+
+
+4. Despues de esto ya podremos utilizar mysql de la siguiente manera
+```bash
+sudo msyql -u root
+```
+Mysql por default utilizar el `auth_socket` lo que le permite autenticarse con las credenciales del sistema operativo.
+Para pruebas en local puede dar algunos problemaa, asi que procedemos a cambiarlo.
+
+5. Definimos una contraseña para el usuario root
+
+```bash 
+# Crea la contraseña
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'contraseña';
+
+# Resetea los privilegios
+FLUSH PRIVILEGES;
+```
+
+Ya podemos acceder sin la necesidad de sudo y con la contraseña previamente asignada al usuario root
+```bash
+mysql -u root -p
+```
+
+7. Servicio Mysql
+```bash
+# Iniciar 
+sudo systemctl start mysql
+
+# Detener
+sudo systemctl stop mysql
+
+# Reiniciar
+sudo systemctl restart mysql
+
+# Verificar el estado
+sudo systemctl status mysql
+
 ```
