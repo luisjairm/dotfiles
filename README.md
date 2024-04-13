@@ -1,9 +1,34 @@
+
+# Programas requeridos
+
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [LSD](https://github.com/lsd-rs/lsd)
+* [Android Studio](https://developer.android.com/studio?hl=es-419)
+
+Para instalar un programa `.deb` se debe ejecutar `sudo dpkg -i nombre_del_programa`
+
+Los programas que tienen un instalador `.deb` como es el caso de Android Studio: 
+1. Descargargar el archivo comprimido
+2. Descomprimir 
+3. Mover la carpeta del programa a `/opt/`
+4. Crear un lanzador en la carpeta `/usr/share/applications`,  
+~~~bash
+# nombre de archivo: nombre_aplicación.desktop
+[Desktop Entry]
+Name=Nombre_de_tu_aplicación
+Comment=Comentario_opcional
+Exec=ruta/a/tu/aplicación
+Icon=ruta/a/icono.png
+Terminal=false
+Type=Application
+Categories=Categoria1,Categoria2
+~~~
+
 # Kitty
 
 ```bash
 
 sudo apt install kitty
-sudo apt install image
 
 ln -s ~/dev/dotfiles/kitty/kitty-themes/themes/Floraverse.conf ~/.config/kitty/theme.conf
 ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
@@ -93,7 +118,19 @@ sudo apt install git
 
 # Configuración
 git config --global user.email email_github
+git config --global user.name name
+
+
+# Actualizar el la url de origin
+git remote set-url origin new.git.url/here
 ```
+
+
+
+# Github 
+Configurar SSH para realizar acciones desde linux
+
+[* Ver Guia para generar una nueva clave](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 # React Native
 Entorno para `React Native`
