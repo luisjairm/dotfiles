@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "README",
-        "zsh"
+        "zsh",
+        "kitty"
     ]
 }
