@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "README",
         "zsh",
-        "kitty"
+        "kitty",
+        "fonts"
     ]
 }
