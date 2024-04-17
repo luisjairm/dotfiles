@@ -3,6 +3,7 @@
         "README",
         "zsh",
         "kitty",
-        "fonts"
+        "fonts",
+        "utils"
     ]
 }
