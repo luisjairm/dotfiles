@@ -1,5 +1,11 @@
 
-# Programas requeridos
+* [Guía Windows](windows/README-win.md)
+
+
+
+# Linux
+
+## Programas requeridos
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [LSD](https://github.com/lsd-rs/lsd)
@@ -24,7 +30,7 @@ Type=Application
 Categories=Categoria1,Categoria2
 ~~~
 
-# Kitty
+## Kitty
 
 ```bash
 
@@ -35,7 +41,7 @@ ln -s ~/dev/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ```
 
 
-# ZSH
+## ZSH
 
 Definir zsh por defecto
 
