@@ -4,6 +4,7 @@
         "zsh",
         "kitty",
         "fonts",
-        "utils"
+        "utils",
+        "w-readme"
     ]
 }
