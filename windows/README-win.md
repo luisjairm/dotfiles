@@ -7,6 +7,15 @@
 - [7Zip](https://www.7-zip.org/download.html)
 - [VLC](https://www.videolan.org/vlc/download-windows.html)
 
+## Eliminar programas por defecto preinstaladas en windows
+~~~powershell
+Get-AppxPackage -AllUsers | Remove-AppxPackage
+~~~
+
+### Reinstalar Microsoft Store
+~~~powershell
+Get-AppxPackage -allusers Microsoft.WindowsStore | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+~~~
 
 ## Personalizar terminal de windows
 1. Instalamos `Windows Terminal` desde la [*Microsoft Store*](https://apps.microsoft.com/detail/9n0dx20hk701?rtc=1&hl=es-mx&gl=MX) o desde el [*Instalador*](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-and-running-windows-terminal)
