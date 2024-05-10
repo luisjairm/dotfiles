@@ -55,3 +55,23 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 ~~~powershell
 Import-Module -Name Terminal-Icons
 ~~~
+
+## Instalar Node.js
+- Descargamos la ultima version de [`nvm`](https://github.com/coreybutler/nvm-windows/releases) e instalamos
+
+```bash
+// Lista las versiones disponibles para descargar
+nvm list available
+
+// Instalamos una version especifica
+nvm install 18.20.2
+
+// Para utilizar la versión descargada (Como administrador)
+nvm use 18.20.2
+
+// listamos las versiones descargadas
+nvm ls
+
+// Instalamos ultima version LTS
+nvm install lts
+```
