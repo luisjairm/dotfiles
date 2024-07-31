@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Plugins zsh
-source /home/username/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/username/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh-plugins/sudo.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-plugins/sudo.plugin.zsh
 #source /usr/share/zsh-plugins/copypath.plugin.zsh
 
 alias v='code'

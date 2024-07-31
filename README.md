@@ -1,19 +1,53 @@
+- [Linux](#linux)
+  - [Programas requeridos](#programas-requeridos)
+  - [Kitty](#kitty)
+  - [ZSH](#zsh)
+  - [Instalar Powelevel10k](#instalar-powelevel10k)
+  - [Plugins](#plugins)
+    - [zsh-autosuggestions](#zsh-autosuggestions)
+    - [zsh-syntax-highlighting](#zsh-syntax-highlighting)
+    - [Sudo](#sudo)
+- [Node](#node)
+- [Git](#git)
+- [Github](#github)
+- [React Native](#react-native)
+  - [Expo](#expo)
+    - [Expo Cli](#expo-cli)
+    - [Eas CLI](#eas-cli)
+- [Latex](#latex)
+- [Nvim](#nvim)
+  - [Plugins](#plugins-1)
+- [Apariencia](#apariencia)
+  - [Iconos](#iconos)
+- [Tema](#tema)
+- [Staruml](#staruml)
+- [Inkscape](#inkscape)
+  - [Convertir svg en png](#convertir-svg-en-png)
+  - [Convertir svg to pdf](#convertir-svg-to-pdf)
+- [MySQL](#mysql)
+  - [Instalación](#instalación)
+  - [Configuramos el componente "VALIDAR CONTRASEÑA"](#configuramos-el-componente-validar-contraseña)
+- [Postgressql](#postgressql)
+  - [Instalación](#instalación-1)
+  - [Configurar por primera vez (Linux Mint)](#configurar-por-primera-vez-linux-mint)
 
-* [Guía Windows](windows/README-win.md)
 
 
+* [Windows](windows/README-win.md)
 
 # Linux
 
 ## Programas requeridos
 
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [LSD](https://github.com/lsd-rs/lsd)
-* [Android Studio](https://developer.android.com/studio?hl=es-419)
+  [Visual Studio Code](https://code.visualstudio.com/download)
+  [LSD](https://github.com/lsd-rs/lsd)
+  [Android Studio](https://developer.android.com/studio?hl=es-419)
+  [DBeaver](https://dbeaver.io/download/)
+
 
 Para instalar un programa `.deb` se debe ejecutar `sudo dpkg -i nombre_del_programa`
 
-Los programas que tienen un instalador `.deb` como es el caso de Android Studio: 
+Los programas que no tienen un instalador `.deb` como es el caso de Android Studio o Postman: 
 1. Descargargar el archivo comprimido
 2. Descomprimir 
 3. Mover la carpeta del programa a `/opt/`
@@ -74,7 +108,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
 
 ```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 # Agregamos a .zshrc
@@ -88,10 +122,7 @@ Para manejar los plugis de manera mas comoda, creamos una carpeta especifica
 mkdir /usr/share/zsh-plugins
 ```
 Dentro de la carpeta, descargamos el codigo del plugin con `wget`
-```bash
-# Agregamos el source al .zshrc
 
-```
 
 
 # Node
@@ -399,3 +430,37 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 
 ```
+
+
+# Postgressql
+
+## Instalación
+~~~bash
+sudo apt install postgresql
+~~~
+
+## Configurar por primera vez (Linux Mint)
+1. Conectamos con el usuario por defecto `postgres`
+~~~bash
+sudo -u postgres psql template1
+~~~
+2. Establecemos una contraseña para el usuario postgres
+~~~bash
+ALTER USER postgres with encrypted password 'xxxxxxx'; 
+~~~
+3. Editamos el archivo `pg_hba.conf`, el `14` depende de la versión instalada
+~~~bash
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+~~~
+cambiamos `peer` a `md5`
+~~~conf
+local      all     postgres     md5
+~~~
+4. Reiniciamos la base de datos
+~~~bash
+sudo /etc/init.d/postgresql restart
+~~~
+5. Conectamos, con la contraseña agregada en el paso 2.
+~~~bash
+psql -U postgres
+~~~
