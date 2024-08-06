@@ -30,6 +30,9 @@
 - [Postgressql](#postgressql)
   - [Instalación](#instalación-1)
   - [Configurar por primera vez (Linux Mint)](#configurar-por-primera-vez-linux-mint)
+- [Samba](#samba)
+  - [Instalación](#instalación-2)
+  - [Configuración](#configuración)
 
 
 
@@ -463,4 +466,42 @@ sudo /etc/init.d/postgresql restart
 5. Conectamos, con la contraseña agregada en el paso 2.
 ~~~bash
 psql -U postgres
+~~~
+
+# Samba
+## Instalación
+~~~bash
+sudo apt install samba
+~~~
+
+## Configuración
+
+Agregar un nuevo usuario al sistema linux
+~~~bash
+sudo useradd nombre_usuario
+sudo passwd nombre_usuario
+~~~
+
+
+Agregamos el usuario a samba, el usuario debe estar previamente creado en el sistema
+
+~~~bash
+sudo smbpasswd -a one
+sudo service smbd restart # Reiniciamos el servicio
+~~~
+
+Editamos el archivo de configuración
+~~~bash
+sudo nano /etc/samba/smb.conf
+~~~
+Agregamos la siguiente al final del archivo, esto es para cada carpeta que se quiera compartir
+~~~conf
+[SharedFolderName]
+path = "/path/to/folder"  
+read only = no
+browseable = yes
+writeable = yes
+valid users = one, two
+create mask = 0640
+directory mask = 0750
 ~~~
