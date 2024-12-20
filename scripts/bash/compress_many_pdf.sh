@@ -9,10 +9,10 @@ fi
 echo "Comprimiendo PDF..."
 
 # Variables
-folder_main=$1
+folder_main="$1"
 
-if [ -z "$folde_main"] || [ ! -d "$folder_main" ]; then 
-    echo "La carpeta no es valida: ${folder_main}"
+if [ -z "$folder_main" ] || [ ! -d "$folder_main" ]; then
+    echo "Debe proporcionar un directorio válido como argumento."
     exit 1
 fi
 
