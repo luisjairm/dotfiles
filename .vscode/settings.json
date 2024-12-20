@@ -5,6 +5,7 @@
         "kitty",
         "fonts",
         "utils",
-        "w-readme"
+        "w-readme",
+        "scripts"
     ]
 }
