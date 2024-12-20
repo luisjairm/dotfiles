@@ -42,6 +42,9 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Scripts
+export PATH="$HOME/dotfiles/scripts/bash:$PATH"
+
 function mkt() {
     base_path="src"
     folders=(
