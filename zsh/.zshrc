@@ -8,7 +8,7 @@ fi
 # Plugins zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-plugins/sudo.plugin.zsh
+source ~/.zsh/sudo.plugin.zsh
 #source /usr/share/zsh-plugins/copypath.plugin.zsh
 
 alias v='code'
@@ -79,7 +79,7 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # pnpm
-export PNPM_HOME="/home/username/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
