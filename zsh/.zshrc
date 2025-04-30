@@ -12,12 +12,12 @@ source ~/.zsh/sudo.plugin.zsh
 #source /usr/share/zsh-plugins/copypath.plugin.zsh
 
 alias v='code'
-alias ls ="lsd"
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
+#alias ls ="lsd"
+#alias ll='lsd -lh --group-dirs=first'
+#alias la='lsd -a --group-dirs=first'
+#alias l='lsd --group-dirs=first'
+#alias lla='lsd -lha --group-dirs=first'
+#alias ls='lsd --group-dirs=first'
 
 alias icat='kitty +kitten icat'
 
@@ -81,12 +81,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# pnpm
-export PNPM_HOME="~/.local/share/pnpm"
+export PNPM_HOME="/home/luisjairmz/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
-
-
